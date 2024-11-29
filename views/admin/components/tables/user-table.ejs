@@ -1,0 +1,61 @@
+<% if (!success) { %>
+    <div class="alert alert-danger">
+        <%= message %>
+    </div>
+<% } else { 
+    let userData = users;
+    if(page == 1){ %>
+        <table class="table table-bordered table-responsive-lg table-sortable">
+            <thead>
+                <tr>
+                    <th>Created</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Modify</th>
+                </tr>
+            </thead>
+            <tbody id="myTable">
+    <% } %>
+            <% if (userData && Array.isArray(userData)) { %>                
+                <% userData.forEach(user => { %>
+                    <tr class="text-center align-middle">
+                        <td class="text-center align-middle">
+                            <%= new Date(user.createdAt).toLocaleDateString('en-IN', { 
+                                year: 'numeric', 
+                                month: '2-digit', 
+                                day: '2-digit' 
+                            }) %>
+                        </td>
+                        <td>
+                            <span><%= user.name %></span>
+                        </td>
+                        <td>
+                            <span><%= user.email %></span>
+                        </td>
+                        <td>
+                            <span><%= user.role %></span>
+                        </td>
+                        <td>
+                            <span><%= user.age !== null ? user.age : 'N/A' %></span>
+                        </td>
+                        <td>
+                            <span><%= user.gender !== null ? user.gender : 'N/A' %></span>
+                        </td>                                
+                        <td>
+                            <% if (user.role !== 'admin') { %>
+                                <i class="fa-solid fa-pen fa-bounce d-flex justify-content-center editIcon" onclick="window.location.href='/admin/updateUsers?id=<%= user._id %>'"></i>
+                            <% } else { %>
+                                Can't modify
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% }; %>
+    <% if(page == 1){ %>
+        </tbody>
+    </table>
+    <% } %>
+<% } %>

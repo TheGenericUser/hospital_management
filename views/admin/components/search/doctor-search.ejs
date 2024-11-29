@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Doctor Search</h2>
+    <form id="doctor-search-form">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="doctor-id">ID:</label>
+                <input type="text" class="form-control" id="doctor-id" name="id" placeholder="Enter doctor ID">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="doctor-name">Name:</label>
+                <input type="text" class="form-control" id="doctor-name" name="name" placeholder="Enter doctor Name">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="doctor-email">Email:</label>
+                <input type="email" class="form-control" id="doctor-email" name="email" placeholder="Enter doctor Email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="doctor-name">Mobile:</label>
+                <input type="tel" class="form-control" id="doctor-mobile" name="mobile" placeholder="Enter doctor mobile" 
+                        pattern="^\d{8,10}$" 
+                        minlength="8" maxlength="10">
+                </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="doctor-role">Department:</label>
+                <select class="form-select" name="department" id="doctor-department" aria-label="Department">
+                    <option value="na">N.A.</option>
+                <% departmentNames.forEach(function(department) { %>
+                    <option value="<%= department %>"><%= department %></option>
+                <% }) %>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="created-before">Created At (Before):</label>
+                <input type="date" class="form-control" id="created-before" name="createdBefore">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="created-after">Created At (After):</label>
+                <input type="date" class="form-control" id="created-after" name="createdAfter">
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3">Search</button>
+    </form>
+</div>

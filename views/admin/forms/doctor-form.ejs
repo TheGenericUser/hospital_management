@@ -1,0 +1,115 @@
+<div class="container">
+    <h2 class="text-center mb-4">Doctor Information</h2>
+    <form id="doctor-modify-form">
+        <!-- Name Field -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="<%=doctor.name%>" placeholder="Change name" required>
+        </div>
+    
+        <!-- Email Field -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Change email" value="<%=doctor.email%>" required>
+        </div>
+    
+        <!-- Mobile Field -->
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="tel" class="form-control" id="mobile" name="mobile" 
+                   placeholder="Change doctor's mobile number" 
+                   pattern="^\d{8,10}$" minlength="8" maxlength="10" 
+                   value="<%=doctor.phoneNumber%>" required>
+        </div>
+    
+        <!-- Department Selection -->
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <select class="form-select" id="department" name="department" required>
+                <% departmentNames.forEach(function(department) { %>
+                    <option value="<%= department %>" <%= doctor.departmentName === department ? 'selected' : '' %>><%= department %></option>
+                <% }) %>
+            </select>
+        </div>
+    
+        <!-- Dynamic Education Fields -->
+        <div class="form-group" id="educationSection">
+            <label for="education">Education:</label>
+            <div id="educationInputs">
+                <% doctor.education && doctor.education.forEach(function(edu) { %>
+                    <input type="text" class="form-control mb-2" name="education[]" value="<%= edu %>" placeholder="Enter education qualification">
+                <% }) %>
+                <input type="text" class="form-control mb-2" name="education[]" placeholder="Enter education qualification">
+            </div>
+            <button type="button" class="btn btn-info" id="addEducation">Add Education</button>
+        </div>
+    
+        <!-- Dynamic Languages Spoken Fields -->
+        <div class="form-group" id="languagesSection">
+            <label for="languages">Languages Spoken:</label>
+            <div id="languageInputs">
+                <% doctor.languagesSpoken && doctor.languagesSpoken.forEach(function(language) { %>
+                    <input type="text" class="form-control mb-2" name="languages[]" value="<%= language %>" placeholder="Enter language">
+                <% }) %>
+                <input type="text" class="form-control mb-2" name="languages[]" placeholder="Enter language">
+            </div>
+            <button type="button" class="btn btn-info" id="addLanguage">Add Language</button>
+        </div>
+    
+        <!-- Dynamic Awards Fields -->
+        <div class="form-group" id="awardsSection">
+            <label for="awards">Awards:</label>
+            <div id="awardInputs">
+                <% doctor.awards && doctor.awards.forEach(function(award) { %>
+                    <input type="text" class="form-control mb-2" name="awards[]" value="<%= award %>" placeholder="Enter award">
+                <% }) %>
+                <input type="text" class="form-control mb-2" name="awards[]" placeholder="Enter award">
+            </div>
+            <button type="button" class="btn btn-info" id="addAward">Add Award</button>
+        </div>
+
+        <div id="timeslot-container">
+            <h4>Availability</h4>
+            <!-- Example Timeslot Entry -->
+            <% doctor.timeslotAvailability && doctor.timeslotAvailability.forEach(function(timeslot, index) { %>
+                <div class="timeslot-entry" data-index="<%= index %>">
+                    <div class="mb-3">
+                        <label for="day" class="form-label">Day</label>
+                        <select class="form-select day-select" name="day">
+                            <option value="Monday" <%= timeslot.day === 'Monday' ? 'selected' : '' %>>Monday</option>
+                            <option value="Tuesday" <%= timeslot.day === 'Tuesday' ? 'selected' : '' %>>Tuesday</option>
+                            <option value="Wednesday" <%= timeslot.day === 'Wednesday' ? 'selected' : '' %>>Wednesday</option>
+                            <option value="Thursday" <%= timeslot.day === 'Thursday' ? 'selected' : '' %>>Thursday</option>
+                            <option value="Friday" <%= timeslot.day === 'Friday' ? 'selected' : '' %>>Friday</option>
+                            <option value="Saturday" <%= timeslot.day === 'Saturday' ? 'selected' : '' %>>Saturday</option>
+                            <option value="Sunday" <%= timeslot.day === 'Sunday' ? 'selected' : '' %>>Sunday</option>
+                        </select>
+                    </div>
+
+                    <% timeslot.timeSlots.forEach(function(slot, slotIndex) { %>
+                        <div class="mb-3">
+                            <label for="start-time" class="form-label">Start Time</label>
+                            <input type="time" class="form-control" name="startTime" value="<%= slot.startTime %>" required>
+                            
+                            <label for="end-time" class="form-label">End Time</label>
+                            <input type="time" class="form-control" name="endTime" value="<%= slot.endTime %>" required>
+                            
+                        </div>
+                    <% }) %>
+                </div>
+            <% }) %>
+        </div>
+        
+        <button type="button" class="btn btn-secondary mt-3" id="add-timeslot">Add Time Slot</button>
+    
+        <!-- Image File Input -->
+        <div class="doctor-image">
+            <input class="form-control form-control-lg d-none get-doctor-image" id="doctor-image-input" onchange="previewImage(event)" type="file" accept=".jpg, .jpeg, .png">
+            <button type="button" class="btn btn-info mt-3 mb-3 d-block" onclick="this.previousElementSibling.click()">Change Image</button>
+            <img id="image" src="<%= doctor.imagePath || 'https://placehold.co/600x400' %>" alt="Doctor" class="img-fluid doctor-image-img mb-3 d-block">            
+        </div>
+        <div class="justify-content-end">
+            <button type="submit" class="btn btn-primary mt-3" aria-label="Modify doctor">Modify</button>
+        </div>
+    </form>
+</div>

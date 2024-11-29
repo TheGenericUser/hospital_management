@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title || 'Document' %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/user/custom.css">
+    <style>
+        .consultation-card {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .consultation-card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<%- include('components/navbar.ejs') %>
+<% if (!success) { %>
+    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+        <div class="alert alert-info text-center" role="alert">
+            <h4 class="alert-heading">No Consultations Available</h4>
+            <p>It seems there are no consultations scheduled at the moment. Please check back later!</p>
+        </div>
+    </div>
+<% } else { %>
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4"><%=title%></h1>
+        
+        <div class="row">
+            <% consultations.forEach(function(consultation) { %>
+                <div class="col-md-4">
+                    <div class="card consultation-card">
+                        <div class="card-header consultation-card-header">
+                            <h5><%= consultation.doctorName %></h5>
+                            <p class="text-muted"><%= consultation.departmentName %></p>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Consultation Time:</strong><%= new Date(consultation.consultationTime.date).toLocaleDateString('en-GB') %><br>
+                                <strong>Start Time:</strong> <%= consultation.consultationTime.startTime %> <br>
+                                <strong>End Time:</strong> <%= consultation.consultationTime.endTime %> </p>
+                            
+                            <p><strong>Status:</strong> 
+                                <span class="badge 
+                                    <%= consultation.status === 'scheduled' ? 'bg-warning' : '' %>
+                                    <%= consultation.status === 'completed' ? 'bg-success' : '' %>
+                                    <%= consultation.status === 'cancelled' ? 'bg-danger' : '' %>">
+                                    <%= consultation.status %>
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+    </div>
+    <% } %>
+
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script
+</html>

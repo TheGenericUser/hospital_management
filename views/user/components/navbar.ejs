@@ -1,0 +1,60 @@
+<% 
+    const menuItems = {
+        'home': 'Home',
+        'doctors': 'Doctors',
+        'my-consultations': 'Consultations',
+        'lab-reports': 'My Reports',
+        'about': 'About Us',
+        'admin/users': 'Admin',
+    };
+%>
+
+<nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <% if (userLoggedIn) { %>
+            <div class="logout-small">
+                <a id="logoutLink" class="text-danger" href="/logout">
+                    <button class="btn color-1 col-ms-2 ms-2" style="font-size:14px">Logout</button>
+                </a>
+            </div>
+        <% } else { %>
+            <a class="text-primary" href="/login">
+                <button class="btn color-1 logout-small col-ms-2 ms-2" style="font-size:14px">Login</button>
+            </a>
+        <% } %>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <% Object.keys(menuItems).forEach(url => { %>
+                    <% 
+                        const label = menuItems[url];
+                        const isActive = url === primary ? 'active' : '';
+                        if ((label === 'Consultations' || label === 'My Reports') && !userLoggedIn) return;
+                        if (label === 'Admin' && !isAdmin) return;
+                    %>
+                    <li class="nav-item">
+                        <a class="nav-link <%= isActive %>" href="/<%= url %>"><%= label %></a>
+                    </li>
+                <% }); %>
+            </ul>
+    
+        <!-- Button Style for Larger Screens -->
+        <div class="d-none d-lg-flex">
+            <% if (userLoggedIn) { %>
+                <a href="/logout" class="btn btn-danger ms-2">
+                    Logout
+                </a>
+            <% } else { %>
+                <a href="/login" class="btn btn-primary ms-2">
+                    Login
+                </a>
+            <% } %>
+        </div>
+    </div>
+</nav>

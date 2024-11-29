@@ -1,0 +1,16 @@
+<div class="container">
+    <h2 class="text-center mb-4">User Information</h2>
+    <form id="consultation-doctor-form">
+        <div class="mb-3">
+            <label for="doctor" class="form-label">Choose a Doctor:</label>
+            <select class="form-select" id="doctor">
+            <% doctors.forEach(function(doctor, index) { %>
+                <option value="<%= doctor.id %>"><%= doctor.departmentName %>: <%= doctor.doctorName %></option>
+            <% }) %>
+            </select>
+        </div>
+            <button type="submit" class="btn btn-primary" aria-label="Search">Search timetable</button>
+        </div>                 
+
+    </form>
+</div>

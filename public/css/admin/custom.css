@@ -1,0 +1,22 @@
+#wrapper {
+    display: flex;
+}
+
+#wrapper #content-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.sidebar-sticky{
+    position:sticky; top:0; height: 100vh;
+}
+
+.fast-spin {
+    -webkit-animation: fa-spin 0.1s infinite linear;
+    animation: fa-spin 0.1s infinite linear;
+}
+
+.wrap-td{
+    word-wrap: break-word; 
+    max-width: 200px;
+}

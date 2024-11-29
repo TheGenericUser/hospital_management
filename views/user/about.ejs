@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title || 'Document' %>
+  </title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/user/custom.css">
+  <link rel="stylesheet" href="/css/user/about.css">
+</head>
+<body>
+  <%- include('components/navbar.ejs') %>
+  <!-- About Us Section -->
+  <section id="about-us" class="section about">
+    <div class="container">
+      <h2>About Us</h2>
+      <div class="about-content">
+        <p>
+          At <strong>Manas Hospitals</strong>, we believe that healthcare is not just about treating the disease, but about caring for the person as a whole. Since our founding in 1990, we have been a trusted name in healthcare, committed to providing patients with the highest standards of medical care, cutting-edge technology, and compassionate support.
+        </p>
+        <p>
+          Our state-of-the-art facilities, combined with a team of highly skilled doctors, nurses, and support staff, ensure that every patient receives personalized care tailored to their needs. Whether it's a routine checkup, a complex surgery, or emergency treatment, we are always ready to provide the best possible care in a timely and efficient manner.
+        </p>
+        <p>
+          At Manas Hospitals, patient safety and comfort are our top priorities. Our hospital is designed with the latest medical advancements to provide comprehensive care across multiple specialties, including cardiology, neurology, orthopedics, and more. We strive to stay at the forefront of medical science, constantly updating our equipment and methods to offer the best outcomes for our patients.
+        </p>
+        <p>
+          Our mission is to create a healthcare ecosystem where patients can feel truly cared for, every step of the way. We want to be your trusted healthcare partner for life.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/center-of-excellence-b.png" alt="Centers of Excellence">
+          <h3>15</h3>
+          <p>Centers</p>
+        </div>
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/34-specialtiist-b.png" alt="Specialities">
+          <h3>35</h3>
+          <p>Specialities</p>
+        </div>
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/icu-beds-b.png" alt="ICU Beds">
+          <h3>150</h3>
+          <p>ICU Beds</p>
+        </div>
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/325-beds-b.png" alt="Total Beds">
+          <h3>600</h3>
+          <p>Total Beds</p>
+        </div>
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/325-beds-b%20(1).png" alt="Modular OTs">
+          <h3>10</h3>
+          <p>Modular OTs</p>
+        </div>
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/24x7-pahrmacy-b.png" alt="Pharmacy">
+          <h3>24x7</h3>
+          <p>Pharmacy</p>
+        </div>
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/24x7-blood-bank-b.png" alt="Blood Bank">
+          <h3>24x7</h3>
+          <p>Blood Bank</p>
+        </div>
+        <div class="stat-item">
+          <img src="https://assets.onecompiler.app/42yd3986k/42yd2k4nm/emergency-b.png" alt="Emergency">
+          <h3>24x7</h3>
+          <p>Emergency</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Contact Us Section -->
+  <section id="contact-us" class="section contact-us">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Have questions? Reach out to us anytime, 24/7!</p>
+      <div class="contact-info">
+        <p><strong>Emergency:</strong> +91-1234-567-890</p>
+        <p><strong>Email:</strong> <a href="mailto:contact@manashospitals.com">contact@manashospitals.com</a></p>
+        <p><strong>Location:</strong> 123, Healthcare Street, City, Country</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Manas Hospitals. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>

@@ -1,0 +1,50 @@
+.notification-bar {
+position: fixed;
+top: -100px; /* Initially hidden */
+left: 50%;
+transform: translateX(-50%);
+width: 90%;
+max-width: 600px;
+background-color: #28a745; /* Vibrant green */
+color: #fff;
+text-align: center;
+padding: 15px 20px;
+border-radius: 10px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+z-index: 1000;
+display: flex;
+align-items: center;
+justify-content: space-between;
+transition: top 0.5s ease; /* Slide-down animation */
+}
+
+.notification-bar.active {
+top: 20px; /* Slides down into view */
+}
+
+.notification-bar .text {
+font-size: 16px;
+flex: 1;
+margin-right: 10px;
+}
+
+.notification-bar button {
+background: rgba(255, 255, 255, 0.3);
+border: none;
+color: #fff;
+font-size: 18px;
+font-weight: bold;
+cursor: pointer;
+padding: 5px 10px;
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+.notification-bar button:hover {
+background: rgba(255, 255, 255, 0.6);
+}
+
+.notification-bar .icon {
+margin-right: 10px;
+font-size: 20px;
+}

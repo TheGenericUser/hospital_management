@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f4f5f7;
+    line-height: 1.6;
+}
+
+/* Header Section */
+.header {
+    background-color: #004a99;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.2rem;
+    color: #c2d4e5;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 200px;
+    margin-bottom: 1rem;
+}
+
+/* Doctors Section */
+.doctors-section {
+    padding: 3rem 1rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Doctor Card */
+/* Doctor Card */
+.doctor-card {
+    background-color: #fff; /* Default background */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Added background-color transition */
+    text-align: center;
+    cursor: pointer;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff; /* Light blue on hover */
+}
+
+
+.doctor-photo {
+    width: 300px;
+    height: auto;
+}
+
+.card-info {
+    padding: 1rem;
+}
+
+.card-info h2 {
+    font-size: 1.25rem;
+    color: #004a99;
+    margin-bottom: 0.25rem;
+}
+
+.card-info .specialty {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.card-info p {
+    color: #777;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .doctors-grid {
+        grid-template-columns: 1fr;
+    }
+}

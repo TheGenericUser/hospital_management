@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;1,200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eef2f3; /* Light background for body */
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("img.jpg") no-repeat center center/cover; /* Background image */
+    /* Alternatively, use a gradient */
+    /* background: linear-gradient(to bottom right, #e2f0d9, #cfe4f2); */
+}
+
+#LoginAndRegistrationForm {
+    width: 90%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency for the form */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+#formTitle {
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    font-size: 24px;
+    color: #007bff; /* Blue color for headings */
+}
+
+#formSwitchBtn {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#formSwitchBtn button {
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    width: 150px;
+    height: 40px;
+    border: 0;
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+    border: 1px solid #007bff; /* Matching border color */
+    border-radius: 5px;
+    color: #007bff;
+    transition: background 0.3s, color 0.3s;
+}
+
+#formSwitchBtn .active {
+    color: #fff;
+    background: #007bff; /* Active button background */
+}
+
+.input-text {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #007bff; /* Blue border for input fields */
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-text:focus {
+    outline: none;
+    border-color: #0056b3; /* Darker blue on focus */
+}
+
+.forgot-pass-remember-me {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.forgot-pass-remember-me #ForgotPassword {
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.4s;
+}
+
+.forgot-pass-remember-me #ForgotPassword:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.forgot-pass-remember-me label {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.Submit-Btn {
+    width: 100%;
+    height: 42px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    transition: background 0.4s, color 0.4s;
+    background-color: #007bff; /* Button background */
+    color: #fff;
+}
+
+.Submit-Btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.dont-have-account,
+.already-have-account {
+    font-size: 14px;
+    color: #747474;
+}
+
+.dont-have-account a,
+.already-have-account a {
+    font-style: italic !important;
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    font-weight: bold;
+    transition: color 0.4s;
+}
+
+.dont-have-account a:hover,
+.already-have-account a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.error-input {
+    border: 1px solid #ff5b5b;
+}
+
+.error-message {
+    font-size: 11px;
+    font-weight: bold;
+    color: #ff5b5b;
+    text-align: left;
+    margin-top: 2px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #LoginAndRegistrationForm {
+        width: 90%; /* Full width on smaller screens */
+    }
+
+    #formTitle {
+        font-size: 22px; /* Smaller font size on mobile */
+    }
+}

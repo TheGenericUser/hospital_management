@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title || 'Document' %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/notification.css">
+    <link rel="stylesheet" href="/css/admin/admin-navbar.css">
+    <link rel="stylesheet" href="/css/admin/table.css">
+    <link rel="stylesheet" href="/css/admin/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+</head>
+<body>    
+    <%- include('components/notification.ejs') %>
+    <div id="wrapper">
+        <%- include('components/navbar.ejs', { primary: primary }) %>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div class="container-fluid">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+                    <h1 class="h3 mb-0"><%= title %></h1>
+                </div>
+                <div class="d-sm-flex align-items-center justify-content-between">
+                        <button type="button" id="add-departments" class="btn btn-success rounded col-lg-3 col-md-4 col-sm-4">
+                            <i class="bi bi-plus-circle-fill"></i> Add Departments</button>
+                    <div class="input-group rounded">
+                        <input type="search" id="tableSearch" class="form-control rounded col-lg-12 offset-lg-9 col-md-12 offset-md-6 col-sm-12 offset-sm-6" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    </div>
+                </div>
+                <div id="getData">
+                    <%- include('components/tables/department-table.ejs') %>
+                </div>
+            </div>
+            <%- include('components/modals/department-modal.ejs') %>
+        </div>
+    </div>
+</body>
+<script src="/js/notification.js"></script>
+<script src="/js/admin/table.js"></script>
+<script src="/js/admin/table-search.js"></script>
+<script src="/js/admin/animation.js"></script>
+<script src="/js/admin/modal.js"></script>
+<script src="/js/admin/departments.js"></script>
+</html>

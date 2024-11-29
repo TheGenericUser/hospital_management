@@ -1,0 +1,11 @@
+<% if (doctors && Array.isArray(doctors)) { %>                
+    <% doctors.forEach(doctor => { %>
+        <div class="doctor-card" onclick="window.location.href='/doctors-info/<%= doctor._id %>'">
+            <img src="<%= doctor.imagePath || 'https://placehold.co/600x400' %>" alt="Dr. <%=doctor.name%>" class="doctor-photo">
+            <div class="card-info">
+                <h2>Dr. <%=doctor.name%></h2>
+                <p class="specialty"><%=doctor.departmentName%></p>
+            </div>
+        </div>
+    <% }) %>
+<% } %>

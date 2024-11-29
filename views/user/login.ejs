@@ -1,0 +1,46 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+        <%= title || 'Document' %>
+    </title>
+    <link rel="stylesheet" href="/css/notification.css">
+    <link rel="stylesheet" href="/css/user/login.css">
+</head>
+<body>
+    <%- include('../admin/components/notification.ejs') %>
+	<div class="container">
+		<div id="LoginAndRegistrationForm">
+			<h1 id="formTitle"><%= title %></h1>
+			<div id="formSwitchBtn">
+				<button onclick="ShowLoginForm()" id="ShowLoginBtn" class="active">Login</button>
+				<button onclick="ShowRegistrationForm()" id="ShowRegistrationBtn">Registration</button>
+			</div>
+			
+			<!-- Login Form -->
+			<%- include('components/login/login-form.ejs') %>
+
+			<!-- Registration Form -->
+			<%- include('components/login/signup-form.ejs') %>
+
+			<%- include('components/login/email-verification-form.ejs') %>
+
+
+			<%- include('components/login/forget-password-verification-form.ejs') %>
+
+			<!-- Forgot Password Form -->
+			<%- include('components/login/forget-password-form.ejs') %>
+
+			<!-- Reset Password Form -->
+			<%- include('components/login/reset-password-form.ejs') %>
+		</div>
+	</div>
+
+	
+</body>
+<script src="/js/notification.js"></script>
+<script src="/js/user/login/login.js"></script>
+<script src="/js/user/login/main.js"></script>
+<script src="/js/user/login/validation.js"></script>
+</html>

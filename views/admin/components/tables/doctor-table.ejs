@@ -1,0 +1,59 @@
+<% if (!success) { %>
+    <div class="alert alert-danger">
+        <%= message %>
+    </div>
+<% } else { 
+    let doctorData = data;
+    if(page == 1){ %>
+    <table class="table table-bordered table-responsive-lg table-sortable">
+        <thead>
+            <tr>
+                <th>Created At</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Department</th>
+                <th>Modify</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+    <% } %>
+            <% if (doctorData && Array.isArray(doctorData)) { %>                
+                <% doctorData.forEach(doctor => { %>
+                <tr class="text-center align-middle"> 
+                    <td class="text-center align-middle">
+                        <%= new Date(doctor.createdAt).toLocaleDateString('en-IN', { 
+                            year: 'numeric', 
+                            month: '2-digit', 
+                            day: '2-digit' 
+                        }) %>
+                    </td>
+                    <td>
+                        <span><%= doctor.userData.name %></span>
+                    </td>
+                    <td>
+                        <span><%= doctor.userData.email %></span>
+                    </td>
+                    <td>
+                        <% if(doctor.phoneNumber){ %>
+                            <span><%= doctor.phoneNumber %></span>
+                        <% } else { %>
+                            <span>No Number Registered</span>
+                        <% } %>
+                    </td>
+                    <td>
+                        <% if (doctor.departmentData && doctor.departmentData.name) { %>
+                            <span><%=doctor.departmentData.name%></span>
+                        <% } else { %>
+                            <span>N.A.</span>
+                        <% } %>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-pen fa-bounce d-flex justify-content-center editIcon" onclick="window.location.href='/admin/updateDoctors?id=<%= doctor._id %>'"></i>
+                    </td>
+                    </tr>
+                <% }); %>
+            <% }; %>
+        </tbody>
+    </table>
+<% } %>

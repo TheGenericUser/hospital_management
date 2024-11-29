@@ -1,0 +1,186 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Font Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: #34495e;
+}
+
+/* Hero Section Styles (Background image only in this section) */
+.hero {
+    background: url('https://assets.onecompiler.app/42yd3986k/42ydbdm4a/eed8191a10a1a2beb74a3526a2d2344d.jpg') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 48px;
+    font-weight: 900; /* Make the text very bold */
+    color: #000000; /* Pure black */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for brightness effect */
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: 700; /* Bold but slightly less than h2 */
+    color: #000000; /* Pure black */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow for a slightly brighter look */
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero .btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero .btn:hover {
+    background-color: #c0392b;
+}
+
+/* About Us Section Styles */
+.about-us {
+    background-color: #fff;
+    padding: 60px 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-out;
+}
+
+.about-us .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-left img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-left img:hover {
+    transform: scale(1.05);
+}
+
+.about-right {
+    flex: 1;
+}
+
+.about-right h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-out;
+}
+
+.about-right p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.8;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer .social-links {
+    margin-top: 15px;
+}
+
+footer .social-links a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 15px;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: #e74c3c;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

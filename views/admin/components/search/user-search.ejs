@@ -1,0 +1,69 @@
+<div class="container mt-5">
+    <h2 class="mb-4">User Search</h2>
+    <form id="user-search-form">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="user-id">ID:</label>
+                <input type="text" class="form-control" id="user-id" name="id" placeholder="Enter user ID">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="user-name">Name:</label>
+                <input type="text" class="form-control" id="user-name" name="name" placeholder="Enter user Name">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="user-email">Email:</label>
+                <input type="email" class="form-control" id="user-email" name="email" placeholder="Enter user Email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="user-role">Role:</label>
+                <select class="form-select" name="role" id="user-role" aria-label="Role">
+                    <option value="na" selected>N.A</option>
+                    <option value="user">User</option>
+                    <option value="doctor">Doctor</option>
+                    <option value="staff">Staff</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>            
+
+            <div class="col-md-4 mb-3">
+                <label for="age-below">Age (Below):</label>
+                <input type="number" min="1" max="120" class="form-control" id="age-below" name="ageBelow">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="age-above">Age (Above):</label>
+                <input type="number" min="1" max="120" class="form-control" id="age-above" name="ageAbove">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="user-role">Gender:</label>
+                <select class="form-select" name="gender" id="user-gender" aria-label="Gender">
+                    <option value="na" selected>N.A</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>            
+
+            <div class="col-md-4 mb-3">
+                <label for="created-before">Created At (Before):</label>
+                <input type="date" class="form-control" id="created-before" name="createdBefore">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="created-after">Created At (After):</label>
+                <input type="date" class="form-control" id="created-after" name="createdAfter">
+            </div>
+
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3">Search</button>
+    </form>
+</div>

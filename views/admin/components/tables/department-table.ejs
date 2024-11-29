@@ -1,0 +1,54 @@
+<% if (!success) { %>
+    <div class="alert alert-danger">
+        <%= message %>
+    </div>
+<% } else {
+    let departmentData = data;
+    %>
+    <table class="table table-bordered table-responsive-lg table-sortable">
+        <thead>
+            <tr>
+                <th>Created</th>
+                <th>Department Name</th>
+                <th>Modify</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <% if (departmentData && Array.isArray(departmentData)) { %>                
+                <% departmentData.forEach(department => { %>
+                    <tr class="text-center align-middle" data-department-id="<%= department._id %>">
+                        <td class="text-center align-middle">
+                            <%= new Date(department.createdAt).toLocaleDateString('en-IN', { 
+                                year: 'numeric', 
+                                month: '2-digit', 
+                                day: '2-digit' 
+                            }) %>
+                        </td>
+                        <td>
+                            <input min="1" max="256" type="text" value="<%= department.name %>" class="form-control form-control-sm" placeholder="Department Name" required/>
+                        </td>
+                        <td>
+                            <i class="fa-solid fa-pen fa-bounce d-flex justify-content-center editIcon" onclick="modifyDepartment(this)"></i>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger faa-xmark mt-1 deleteIcon" onclick="deleteDepartment(this)">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% }; %>
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pagination">
+            <% const pages = totalPages; %>
+            <% for (let i = 1; i <= pages; i++) { %>
+                <li class="page-item <%= i === page ? 'active' : '' %>">
+                    <a class="page-link" href="/admin/departments/page/<%= i %>"><%= i %></a>
+                </li>
+            <% } %>
+        </ul>
+    </nav>                
+<% } %>

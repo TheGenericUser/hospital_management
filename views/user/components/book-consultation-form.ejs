@@ -1,0 +1,58 @@
+
+    <!-- User Details Form -->
+        <div class="bg-light p-4 rounded shadow-sm mb-4">
+            <h3>Book an Appointment</h3>
+            <% if (! userData.value.age || !userData.value.gender) { %>
+                <p class="text-danger">Please provide your age and gender.</p>
+            <% } %>
+            <form id="book-consultation-form">
+                <% if (!userData.value.age || !userData.value.gender) { %>
+                    <% if (userData.value.name) { %>
+                        <p><strong>Name:</strong> <%= userData.value.name %></p>
+                    <% } %>
+
+                    <div class="mb-3">
+                        <label for="user-age" class="form-label">Age:</label>
+                        <input type="number" class="form-control" id="user-age" name="age" min="0" max="120" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="user-gender" class="form-label">Gender:</label>
+                        <select class="form-select" id="user-gender" name="gender" required>
+                            <option value="" selected>--Select Gender--</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+            <% } else { %>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Name:</strong> <%= userData.value.name %></li>
+                    <li class="list-group-item"><strong>Age:</strong> <%= userData.value.age %></li>
+                    <li class="list-group-item"><strong>Gender:</strong> <%= userData.value.gender %></li>
+                </ul>
+            <% } %>
+            <p class="text-danger mt-4">Select a date and time slot for your consultation:</p>
+                <div class="mb-2">
+                    <label for="consultation-date" class="form-label">Date:</label>
+                    <select id="consultation-date" name="date" class="form-select" required>
+                        <option value="" selected>--Select a Date--</option>
+                        <% let seenDates = new Set(); %>
+                        <% availableSlots.forEach(function(slot) { %>
+                            <% if (!seenDates.has(slot.date)) { %>
+                                <option value="<%= slot.date %>">
+                                    <%= slot.day %>: <%= slot.date %>
+                                </option>
+                                <% seenDates.add(slot.date); %>
+                            <% } %>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="consultation-time" class="form-label">Time Slot:</label>
+                    <select id="consultation-time" name="time" class="form-select" required>
+                        <option value="">--Select a Time--</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Book Consultation</button>
+            </form>
+        </div>

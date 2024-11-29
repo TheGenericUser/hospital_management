@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || 'Document' %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/notification.css">
+    <link rel="stylesheet" href="/css/admin/admin-navbar.css">
+    <link rel="stylesheet" href="/css/admin/table.css">
+    <link rel="stylesheet" href="/css/admin/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+</head>
+<body>
+    <%- include('components/notification.ejs') %>
+    <div id="wrapper">
+        <%- include('components/navbar.ejs', { primary: primary }) %>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div class="container-fluid">
+                <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+                    <h1 class="h3 mb-0"><%= title %></h1>
+                </div>
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <button type="button" id="add-patients" class="btn btn-success rounded col-lg-3 col-md-4 col-sm-4">
+                        <i class="bi bi-plus-circle-fill"></i> Add Patients</button>
+                </div>
+                <%- include('components/search/walkin-patient-search.ejs') %>
+                <div id="getData">
+                </div>
+            </div>
+        </div>
+        <div id="loading-spinner" style="display: none;">
+            <div class="spinner">Loading...</div> <!-- You can style this as you like -->
+        </div>
+    </div>
+    <%- include('components/modals/walkinPatients/add-patients-modal.ejs') %>
+</body>
+<script src="/js/notification.js"></script>
+<script src="/js/admin/table.js"></script>
+<script src="/js/admin/modal.js"></script>
+<script src="/js/admin/search.js"></script>
+<script src="/js/admin/patients/modals/add-patients-modal.js"></script>
+<script src="/js/admin/patients/add-patients.js"></script>
+<script src="/js/admin/animation.js"></script>
+</html>
+

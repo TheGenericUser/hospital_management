@@ -1,0 +1,17 @@
+<div id="RegistrationFrom" style="display:none;">
+    <form id="registerForm" action="JavaScript:void(0);">
+        <div class="center">
+            <input id="RegiName" class="input-text" type="text" placeholder="Full Name">
+            <input id="RegiEmailAddres" class="input-text mt-10" type="email" placeholder="Email Address">
+            <input id="RegiPassword" class="mt-10 input-text" type="password" placeholder="Password">
+            <input id="RegiConfirmPassword" class="mt-10 input-text" type="password" placeholder="Confirm Password">
+        </div>
+        <div class="center mt-20">
+            <input onclick="return ValidateRegistrationForm();" class="Submit-Btn" type="submit" value="Register" id="RegistrationitBtn">
+        </div>
+    </form>
+    <p class="center mt-20 already-have-account">
+        Already have an account? 
+        <a href="JavaScript:void(0);" onclick="ShowLoginForm()">Login now</a>
+    </p>
+</div>

@@ -1,0 +1,53 @@
+<div class="profile-photo">
+    <img src="<%= doctor.imagePath || 'https://placehold.co/600x400' %>" alt="Dr. <%=doctor.name%>">
+</div>
+
+<div class="profile-info">
+    <div class="header-info">
+        <h2>Dr. <%= doctor.name %></h2>
+        <p class="designation"> <%= doctor.departmentName %> </p>
+        <div class="contact-info">
+            <p><strong>Phone:</strong> <%= doctor.phoneNumber %></p>
+            <p><strong>Email:</strong> <%= doctor.email %></p>
+        </div>
+        <button class="appointment-btn" onclick="window.location.href='/book-consultation/<%= doctor._id %>'">Request Appointment</button>
+    </div>
+
+    <!-- Profile Details -->
+    <div class="details">
+        <% if (doctor.languagesSpoken && doctor.languagesSpoken.length > 0) { %>
+            <div class="detail-section">
+                <h3>Languages Spoken</h3>
+                <p><%= doctor.languagesSpoken.join(', ') %></p>
+            </div>
+        <% } else { %>
+            <div class="detail-section">
+                <h3>Languages Spoken</h3>
+                <p>No languages listed.</p>
+            </div>
+        <% } %>        
+
+        <% if (doctor.awards && doctor.awards.length > 0) { %>
+            <div class="detail-section">
+                <h3>Awards and Honors</h3>
+                <% doctor.awards.forEach(function(award) { %>
+                    <p><%= award %></p>
+                <% }); %>
+            </div>
+        <% } %>
+
+        <% if (doctor.education && doctor.education.length > 0) { %>
+            <div class="detail-section">
+                <h3>Education</h3>
+                <% doctor.education.forEach(function(educationItem) { %>
+                    <p><%= educationItem %></p>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div class="detail-section">
+                <h3>Education</h3>
+                <p>No education details listed.</p>
+            </div>
+        <% } %>        
+    </div>
+</div>

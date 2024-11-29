@@ -1,0 +1,62 @@
+<div class="container mt-4">
+    <h2>Consultation</h2>
+
+    <form id="update-walkin-consultation-form">
+        <div class="card">
+            <div class="card-body">
+                <!-- Date -->
+                <div class="mb-3">
+                    <label class="form-label font-weight-bold"> <u> Consultation Date: </u></label>
+                    <p class="form-control-plaintext text-muted" style="font-size: 1.1rem;">
+                        <b><%= new Date(consultation.date).toLocaleDateString('en-GB') %></b>
+                    </p>
+                </div>
+
+                <!-- Start Time -->
+                <div class="mb-3">
+                    <label class="form-label font-weight-bold"> <u> Start Time: </u></label>
+                    <p class="form-control-plaintext text-muted" style="font-size: 1.1rem;">
+                        <b><%= consultation.startTime %></b>
+                    </p>
+                </div>
+
+                <!-- End Time -->
+                <div class="mb-3">
+                    <label class="form-label font-weight-bold"> <u> End Time: </u></label>
+                    <p class="form-control-plaintext text-muted" style="font-size: 1.1rem;">
+                        <b><%= consultation.endTime %></b>
+                    </p>
+                </div>
+
+                <!-- Doctor's Name -->
+                <div class="mb-3">
+                    <label class="form-label font-weight-bold"> <u> Doctor: </u></label>
+                    <p class="form-control-plaintext text-muted" style="font-size: 1.1rem;">
+                        <b><%= doctor.name %>: (<%= doctor.department %>)</b>
+                    </p>
+                </div>
+
+                <!-- Status (Editable only if 'Scheduled') -->
+                <div class="mb-3">
+                    <label class="form-label"> <u> Status: </u> </label>
+                    <% if (consultation.status === 'scheduled') { %>
+                        <select class="form-control" id="status" name="status">
+                            <option value="scheduled" selected>Scheduled</option>
+                            <option value="completed">Completed</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    <% } else { %>
+                        <p class="form-control-plaintext text-muted" style="font-size: 1.1rem;">
+                            <b><%= (consultation.status).toUpperCase() %></b>
+                        </p>
+                    <% } %>
+                </div>
+
+                <!-- Submit button for changing status -->
+                <% if (consultation.status === 'scheduled') { %>
+                    <button type="submit" class="btn btn-primary">Update Status</button>
+                <% } %>
+            </div>
+        </div>
+    </form>
+</div>

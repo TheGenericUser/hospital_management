@@ -1,0 +1,28 @@
+<% let seenDates = new Set(); // This will store the unique dates. %>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Available Consultation Times</h1>
+
+    <form id="walkin-consultation-form" class="bg-light p-4 rounded shadow-sm">
+        <div class="mb-3">
+            <label for="consultation-date" class="form-label">Date:</label>
+            <select id="consultation-date" name="date" class="form-select" required>
+                <option value="" selected>--Select a Date--</option>
+                <% availableSlots.forEach(function(slot) { %>
+                <% if (!seenDates.has(slot.date)) { %>
+                    <option value="<%= slot.date %>">
+                        <%= slot.day %>: <%= slot.date %>
+                    </option>
+                <% } %>
+                    <% seenDates.add(slot.date); %>
+                <% }); %>
+            </select>
+
+            <label for="consultation-time" class="form-label">Time Slot:</label>
+            <select id="consultation-time" name="time" class="form-select" required>
+                <option value="">--Select a Time--</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Book Consultation</button>
+    </form>
+</div>

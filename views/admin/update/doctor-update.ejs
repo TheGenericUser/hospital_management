@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title || 'Document' %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/notification.css">
+    <link rel="stylesheet" href="/css/admin/admin-navbar.css">
+    <link rel="stylesheet" href="/css/admin/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <style>
+        .doctor-image-img {
+        width: 300px;  /* Fixed width */
+        height: 200px; /* Fixed height */
+        object-fit: contain;  /* Ensures the entire image is visible without cropping */
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../components/notification.ejs') %>
+    <% if(!success){ %>
+        <div class="alert alert-danger">
+            <%= message %>
+        </div>
+        <% } else { %>
+            <div id="wrapper">
+                <%- include('../components/navbar.ejs', { primary: primary }) %>
+                    <div id="content-wrapper">
+                        <div class="container-fluid">
+                            <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-3">
+                                <h1 class="h3 mb-0">
+                                    <%= title %>
+                                </h1>
+                            </div>
+                        </div>
+                        <%- include('../forms/doctor-form.ejs') %>
+                    </div>
+            </div>
+            <% } %>
+</body>
+<script src="/js/notification.js"></script>
+<script src="/js/admin/doctors/doctors.js"></script>
+<script src="/js/admin/doctors/modify-doctors.js"></script>
+<script src="/js/admin/animation.js"></script>
+</html>

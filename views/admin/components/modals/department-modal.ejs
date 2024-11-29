@@ -1,0 +1,34 @@
+<div class="modal" id="departmentModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">Add Department</h5>
+            </div>
+            <div class="modal-body">
+                <form id="departmentForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Department Name</label>
+                        <input min="1" max="256" type="text" class="form-control" id="name" placeholder="Department Name" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-danger" id="close-modal-btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">Delete Department?</h5>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this department?</p>
+                <button id="confirmDeleteBtn" class="btn btn-danger">Delete</button>
+                <button id="cancelDeleteBtn" class="btn btn-primary">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

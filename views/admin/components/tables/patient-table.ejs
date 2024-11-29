@@ -1,0 +1,88 @@
+<% if (!success) { %>
+    <div class="alert alert-danger">
+        <%= message %>
+    </div>
+<% } else { 
+    let patientData = patients; 
+    if(page == 1){ %>
+    <table class="table table-bordered table-responsive-lg table-sortable">
+        <thead>
+            <tr>
+                <th>Created</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Modify</th>
+                <% if(!online){ %>
+                <th>Add Consultation</th>
+                <% } %>
+                <th>Prev Consultations</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+    <% } %>
+            <% if (patientData && Array.isArray(patientData)) { %>                
+                <% patientData.forEach(patient => { %>
+                    <tr class="text-center align-middle" data-patient-id="<%= patient._id %>">
+                        <td class="text-center align-middle">
+                            <%= new Date(patient.createdAt).toLocaleDateString('en-IN', { 
+                                year: 'numeric', 
+                                month: '2-digit', 
+                                day: '2-digit' 
+                            }) %>
+                        </td>
+                        <td>
+                            <span><%= patient.name %></span>
+                        </td>
+                        <td>
+                            <span><%= patient.email %></span>
+                        </td>
+                        <td>
+                            <span><%= patient.age %></span>
+                        </td>
+                        <td>
+                            <span><%= patient.gender %></span>
+                        </td>
+                        <td>
+                            <% if(online){ %>
+                                <i class="fa-solid fa-pen fa-bounce d-flex justify-content-center editIcon" 
+                                onclick="window.location.href='/admin/updateOnlinePatients?id=<%= patient._id %>'
+                                "></i>
+                            <% }else{ %>
+                                <i class="fa-solid fa-pen fa-bounce d-flex justify-content-center editIcon" 
+                                onclick="window.location.href='/admin/updateWalkinPatients?id=<%= patient._id %>'
+                                "></i>
+                            <% } %>
+                            
+                        </td>
+                        <% if(!online){ %>
+                        <td>
+                                <i class="fa-solid fa-plus d-flex justify-content-center" 
+                                onclick="window.location.href='/admin/addConsultation?id=<%= patient._id %>'
+                                "></i>
+                        </td>
+                        <% } %>
+                        <td>
+                        <% if(patient.consultationId){ %>
+                            <% if(online){ %>
+                                <i class="fa-solid fa-chevron-right d-flex justify-content-center editIcon" 
+                                onclick="window.location.href='/admin/updateConsultation?id=<%= patient.consultationId %>'
+                                "></i>
+                            <% }else{ %>
+                                <i class="fa-solid fa-chevron-right d-flex justify-content-center editIcon" 
+                                onclick="window.location.href='/admin/updateConsultation?id=<%= patient.consultationId %>'
+                                "></i>
+                            <% } %>
+                        <% } else { %>
+                            <p>N/A.</p>
+                        <% } %>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% }; %>
+    <% if(page == 1){ %>
+        </tbody>
+    </table>
+    <% } %>
+<% } %>

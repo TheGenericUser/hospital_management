@@ -1,0 +1,58 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Online Patient Search</h2>
+    <form id="online-patient-search-form">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="online-patient-id">ID:</label>
+                <input type="text" class="form-control" id="online-patient-id" name="id" placeholder="Enter Online Patient ID">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="online-patient-name">Name:</label>
+                <input type="text" class="form-control" id="online-patient-name" name="name" placeholder="Enter Online Patient Name">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="online-patient-email">Email:</label>
+                <input type="email" class="form-control" id="online-patient-email" name="email" placeholder="Enter Online Patient Email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="age-below">Age (Below):</label>
+                <input type="number" min="1" max="120" class="form-control" id="age-below" name="ageBelow">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="age-above">Age (Above):</label>
+                <input type="number" min="1" max="120" class="form-control" id="age-above" name="ageAbove">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="online-patient-role">Gender:</label>
+                <select class="form-select" name="gender" id="online-patient-gender" aria-label="Gender">
+                    <option value="na" selected>N.A</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="created-before">Created At (Before):</label>
+                <input type="date" class="form-control" id="created-before" name="createdBefore">
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="created-after">Created At (After):</label>
+                <input type="date" class="form-control" id="created-after" name="createdAfter">
+            </div>
+
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3">Search</button>
+    </form>
+</div>

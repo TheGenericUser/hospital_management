@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title || 'Document' %>
+    </title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/user/custom.css">
+    <link rel="stylesheet" href="/css/user/index.css">
+</head>
+<body>
+    <%- include('components/navbar.ejs') %>
+        <!-- Hero Section with Background Image -->
+        <section class="hero mt-5 pt-5">
+            <div class="hero-content">
+                <h2>Welcome to Manas Hospital</h2>
+                <p>Providing Compassionate Care with Advanced Technology</p>
+                <a href="/about" class="btn">Learn More</a>
+            </div>
+        </section>
+    
+        <!-- About Us Section -->
+        <section class="about-us" id="about-us">
+            <div class="container">
+                <div class="about-left">
+                    <img src="https://assets.onecompiler.app/42yd3986k/42yddrcvx/hp.jpg" alt="Hospital Facilities" class="about-image">
+                </div>
+                <div class="about-right">
+                    <p>Manas Hospital is a leading healthcare institution committed to delivering exceptional medical services with the highest standard of care. Our hospital is equipped with state-of-the-art medical technology and staffed by compassionate and highly skilled healthcare professionals. We provide a wide range of services, including emergency care, surgery, maternity care, and specialized treatments, all aimed at promoting the health and well-being of our patients.</p>
+                    <p>Our mission is to foster a patient-centric environment where healing is supported by modern technology and a caring atmosphere. We believe in holistic care, treating not just the illness but also providing emotional and mental support to patients and their families. Our dedicated team of doctors, nurses, and support staff work tirelessly to create an atmosphere of trust and empathy, ensuring that each patient receives the best care possible.</p>
+                    <p>We recognize the importance of community engagement. We actively participate in health awareness programs, and provide outreach services to underserved areas, making quality healthcare accessible to all.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-content">
+                <p>&copy; 2024 Manas Hospital. All Rights Reserved.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">Facebook</a>
+                    <a href="#" target="_blank">Twitter</a>
+                    <a href="#" target="_blank">Instagram</a>
+                </div>
+            </div>
+        </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</html>

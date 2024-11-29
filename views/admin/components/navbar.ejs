@@ -1,0 +1,29 @@
+<ul class="navbar-nav sidebar accordion sidebar-sticky" role="navigation">
+    <div class="sidebar-brand d-flex align-items-center justify-content-center">
+        <div class="sidebar-brand-icon">
+            <i class="fa-solid fa-face-laugh fa-spin" style="color: #f73232;"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3 fs-4">Admin Panel</div>
+    </div>
+    <hr>
+    <% 
+    let currentPrimary = primary || 'index'; 
+
+    const menuItems = {
+        '/admin/users': 'Users',
+        '/admin/departments': 'Department',
+        '/admin/doctors': 'Doctor',
+        '/admin/walkin-patients': 'Walkin Patients',
+        '/admin/online-patients': 'Online Patients',
+        '/home': 'Main Site'
+    };
+    
+    %>
+    <% for (const [url, label] of Object.entries(menuItems)) { %>
+        <li class="nav-item">
+            <a class="nav-link text-center fs-6 <%= url.split('/').pop() === currentPrimary  ? 'bg-primary' : '' %>" href="<%= url %>" aria-current="<%= url.split('/').pop() === currentPrimary  ? 'page' : 'false' %>" role="link">
+                <%= label %>
+            </a>
+        </li>
+    <% } %>
+</ul>
